@@ -9,22 +9,33 @@ SELECT_SCRIPT = """<script type="text/javascript">
 
 class TwoStepSelect(MultiWidget):
 
-	def __init__(self, parent_model, child_model, lookup, attrs=None, **kwargs):
-		parent_choices = [(p.pk, p) for p in parent_model.objects.all()]
-		child_choices = [(p.pk, p) for p in child_model.objects.all()]
+	def __init__(self, attrs=None, **kwargs):
+		self.parent_model = kwargs.get('parent_model')
+		self.child_model = kwargs.get('child_model')
+		self.lookup = kwargs.get('lookup')
+
+		child_choices = [('','---')] 
+		child_choices.extend([(p.pk, p) for p in self.child_model.objects.all()])
+
 		widgets = (
-			Select(attrs=attrs,choices=parent_choices),
-			Select(attrs=attrs,choices=child_choices)
+			Select(attrs=attrs,choices=[('','---')]),
+			Select(attrs=attrs,choices=[('','---')])
 		)
 		super(TwoStepSelect, self).__init__(widgets, attrs)
 
 	def decompress(self, value):
 		print "===============",value
+
+		parent_choices = [('','---')]
+		parent_choices.extend([(p.pk, p) for p in self.parent_model.objects.all()])
+
+		self.widgets[0].choices = parent_choices
+
 		if value:
 			try:
-				child_instance = child_model.objects.get(pk=value)
-				parent_instance = getattr(child_instance,lookup)
-			except child_model.DoesNotExist:
+				child_instance = self.child_model.objects.get(pk=value)
+				parent_instance = getattr(child_instance,self.lookup)
+			except self.child_model.DoesNotExist:
 				return [None, None]
 
 			return [parent_instance, child_instance]
