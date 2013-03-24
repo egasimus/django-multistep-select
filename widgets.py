@@ -34,13 +34,12 @@ class TwoStepSelect(MultiWidget):
 		self.parent_choices.extend([(p.pk, p) for p in self.parent_model.objects.all()])
 
 		self.child_model = kwargs.get('child_model')
-		self.child_choices = [('','---')] 
-		self.child_choices.extend([(p.pk, p) for p in self.child_model.objects.all()])
 
 		self.parent_lookup = kwargs.get('parent_lookup')
+		self.child_lookup = kwargs.get('child_lookup')
 
 		widgets = (
-			Select(attrs=attrs,choices=[('','---')]),
+			Select(attrs=attrs,choices=self.parent_choices),
 			Select(attrs=attrs,choices=[('','---')])
 		)
 		super(TwoStepSelect, self).__init__(widgets, attrs)
@@ -49,14 +48,17 @@ class TwoStepSelect(MultiWidget):
 		return data.get(name+"_1",None)
 
 	def decompress(self, value):
-		self.widgets[0].choices = self.parent_choices
-
 		if value:
 			try:
 				child_instance = self.child_model.objects.get(pk=value)
-				self.widgets[1].choices = self.child_choices
 				parent_instance = getattr(child_instance,self.parent_lookup)
-				return [parent_instance, child_instance]
+
+				filter_kwargs = { self.parent_lookup:parent_instance }
+				self.child_choices = [('','---')]
+				self.child_choices.extend([(p.pk, p) for p in self.child_model.objects.filter(**filter_kwargs)])
+
+				self.widgets[1].choices = self.child_choices
+				return [parent_instance.pk, child_instance.pk]
 			except self.child_model.DoesNotExist:
 				return [None, None]
 
