@@ -8,16 +8,16 @@ from django.utils.safestring import mark_safe
 SELECT_SCRIPT = """<script type="text/javascript">
 (function($) {
 	$(document).ready(function() {
-		$("#id_synonym_0").change(function(){
-			var request_url = "%s".replace('$VALUE$',$(this).val())
+		$("#%(id)s_0").change(function(){
+			var request_url = "%(url)s".replace('$VALUE$',$(this).val())
 			$.getJSON(request_url,function(data){
-				$("#id_synonym_1").empty().append('<option value="">Please select a definition:</option>')
+				$("#%(id)s_1").empty().append('<option value="">Please select a definition:</option>')
 				$(data).each(function(){
 					var option = '<option value=' + 
 						$(this)[0].pk+'>' + 
 						$(this)[0].fields.text.substring(0,50) +
 						'</option>'
-					$("#id_synonym_1").append(option)
+					$("#%(id)s_1").append(option)
 				})
 			})
 		})
@@ -98,7 +98,8 @@ class TwoStepSelect(MultiWidget):
 			}
 		)
 
-		out_script = SELECT_SCRIPT % json_url
+
+		out_script = SELECT_SCRIPT % {'id':id_, 'url':json_url}
 
 		output.append(out_script)
 
