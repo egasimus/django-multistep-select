@@ -125,7 +125,7 @@ class SimpleFilterSelect(BaseMultiStepSelect):
         """ We'll be iterating over relations in reverse order. """
         relations = self.subwidget_relations[:]
         relations.reverse()
-        choice_lists = self.get_subwidget_choices()
+        choice_lists = self.get_subwidget_choices()[:]
         choice_lists.reverse()
 
         """ On the first iteration, we get the last value and add it to
