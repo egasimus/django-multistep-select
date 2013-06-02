@@ -11,7 +11,8 @@ class SimpleListMixin(object):
     def get_context_data(self, **kwargs):
         d = super(SimpleListMixin, self).get_context_data(**kwargs)
         d.update({'object_list': self.model.objects.all(),
-                  'object_name': self.model._meta.verbose_name.title()})
+                  'object_name': self.model._meta.verbose_name.title(),
+                  'object_field': self.model.get_second_field_name()})
         return d
 
 

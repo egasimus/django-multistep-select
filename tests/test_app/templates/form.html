@@ -12,7 +12,7 @@
 
         <thead>
             <th>Name</th>
-            <th>Color</th>
+            <th>{{ object_field }}</th>
         </thead>
 
         <tbody>
@@ -21,7 +21,7 @@
 
             <tr>
                 <td>{{ obj.name }}</td>
-                <td>{{ obj.get_color_display }}</td>
+                <td>{{ obj.get_second_field_display }}</td>
             </tr>
 
         {% endfor %}
