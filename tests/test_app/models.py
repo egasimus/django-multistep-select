@@ -19,6 +19,9 @@ class SimpleFoo(models.Model):
     def get_second_field_name(cls):
         return 'Color'
 
+    def __unicode__(self):
+        return '%s (%s)' % (self.name, self.get_color_display())
+
     def get_second_field_display(self):
         return self.get_color_display()
 
@@ -30,6 +33,9 @@ class FilterBar(models.Model):
     @classmethod
     def get_second_field_name(cls):
         return 'Related Foo'
+
+    def __unicode__(self):
+        return '%s (%s)' % (self.name, self.foo)
 
     def get_second_field_display(self):
         return unicode(self.foo)
@@ -45,6 +51,9 @@ class GenericBaz(models.Model):
     @classmethod
     def get_second_field_name(cls):
         return 'Related Object'
+
+    def __unicode__(self):
+        return '%s (%s)' % (self.name, self.content_object)
 
     def get_second_field_display(self):
         return unicode(self.content_object)

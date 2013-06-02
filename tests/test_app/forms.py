@@ -1,20 +1,24 @@
-from django.forms import ModelForm
+from django import forms
+
 from .models import *
+from multistep_select.widgets import TwoStepSelect
 
 
-class SimpleFooForm(ModelForm):
+class SimpleFooForm(forms.ModelForm):
     class Meta:
         model = SimpleFoo
         fields = ('name', 'color')
 
 
-class FilterBarForm(ModelForm):
+class FilterBarForm(forms.ModelForm):
     class Meta:
         model = FilterBar
-        fields = ('name', 'foo')
+        fields = ('name', )
+    foo = forms.ModelChoiceField(queryset=SimpleFoo.objects.all())
 
 
-class GenericBazForm(ModelForm):
+class GenericBazForm(forms.ModelForm):
     class Meta:
         model = GenericBaz
         fields = ('name', )
+

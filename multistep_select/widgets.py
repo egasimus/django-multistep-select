@@ -1,106 +1,94 @@
 from django.core.urlresolvers import reverse
-from django.db.models import Q
 from django.forms.widgets import Select, MultiWidget
-from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 
 
-SELECT_SCRIPT = """<script type="text/javascript">
-(function($) {
-	$(document).ready(function() {
-		$("#%(id)s_0").change(function(){
-			var request_url = "%(url)s".replace('$VALUE$',$(this).val())
-			$.getJSON(request_url,function(data){
-				$("#%(id)s_1").empty().append('<option value="">Please select a definition:</option>')
-				$(data).each(function(){
-					var option = '<option value=' + 
-						$(this)[0].pk+'>' + 
-						$(this)[0].fields.text.substring(0,50) +
-						'</option>'
-					$("#%(id)s_1").append(option)
-				})
-			})
-		})
-	})
-})(grp.jQuery);
+SELECT_SCRIPT = """"""
 
-</script>"""
 
 class TwoStepSelect(MultiWidget):
 
-	def __init__(self, attrs=None, **kwargs):
-		self.parent_model = kwargs.get('parent_model')
-		self.parent_choices = [('','---')]
-		self.parent_choices.extend([(p.pk, p) for p in self.parent_model.objects.all()])
+    class Media:
+        js = ('multistep_select/multistep_select.js', )
 
-		self.child_model = kwargs.get('child_model')
+    def __init__(self, attrs=None, **kwargs):
+        self.parent_model = kwargs.get('parent_model')
+        self.parent_choices = [('', '---')]
+        self.parent_choices.extend(
+            [(p.pk, p) for p in self.parent_model.objects.all()])
 
-		self.parent_lookup = kwargs.get('parent_lookup')
-		self.child_lookup = kwargs.get('child_lookup')
+        self.child_model = kwargs.get('child_model')
 
-		widgets = (
-			Select(attrs=attrs,choices=self.parent_choices),
-			Select(attrs=attrs,choices=[('','---')])
-		)
-		super(TwoStepSelect, self).__init__(widgets, attrs)
+        self.parent_lookup = kwargs.get('parent_lookup')
+        self.child_lookup = kwargs.get('child_lookup')
 
-	def value_from_datadict(self, data, files, name):
-		return data.get(name+"_1",None)
+        widgets = (
+            Select(attrs=attrs, choices=self.parent_choices),
+            Select(attrs=attrs, choices=[('', '---')])
+        )
+        super(TwoStepSelect, self).__init__(widgets, attrs)
 
-	def decompress(self, value):
-		if value:
-			try:
-				child_instance = self.child_model.objects.get(pk=value)
-				parent_instance = getattr(child_instance,self.parent_lookup)
+    def value_from_datadict(self, data, files, name):
+        return data.get(name + "_1", None)
 
-				filter_kwargs = { self.parent_lookup:parent_instance }
-				self.child_choices = [('','---')]
-				self.child_choices.extend([(p.pk, p) for p in self.child_model.objects.filter(**filter_kwargs)])
+    def decompress(self, value):
+        if value:
+            try:
+                child_instance = self.child_model.objects.get(pk=value)
+                parent_instance = getattr(child_instance, self.parent_lookup)
 
-				self.widgets[1].choices = self.child_choices
-				return [parent_instance.pk, child_instance.pk]
-			except self.child_model.DoesNotExist:
-				return [None, None]
+                filter_kwargs = {self.parent_lookup: parent_instance}
+                self.child_choices = [('', '---')]
+                self.child_choices.extend([
+                    (p.pk, p) for p in
+                    self.child_model.objects.filter(**filter_kwargs)])
 
-		return [None, None]
+                self.widgets[1].choices = self.child_choices
+                return [parent_instance.pk, child_instance.pk]
+            except self.child_model.DoesNotExist:
+                return [None, None]
 
-	def render(self, name, value, attrs=None):
-		if self.is_localized:
-			for widget in self.widgets:
-				widget.is_localized = self.is_localized
+        return [None, None]
 
-		if not isinstance(value, list):
-			value = self.decompress(value)
+    def render(self, name, value, attrs=None):
+        if self.is_localized:
+            for widget in self.widgets:
+                widget.is_localized = self.is_localized
 
-		output = []
-		final_attrs = self.build_attrs(attrs)
+        if not isinstance(value, list):
+            value = self.decompress(value)
 
-		id_ = final_attrs.get('id', None)
+        output = []
+        final_attrs = self.build_attrs(attrs)
 
-		widget_ids = []
-		for i, widget in enumerate(self.widgets):
-			widget_ids.append(id_ + name + '_%s' % i)
-			try:
-				widget_value = value[i]
-			except IndexError:
-				widget_value = None
-			if id_:
-				final_attrs = dict(final_attrs, id='%s_%s' % (id_, i))
-			output.append(widget.render(name + '_%s' % i, widget_value, final_attrs))
+        id_ = final_attrs.get('id', None)
 
-		json_url = reverse(
-			'json_list',
-			kwargs={
-				'app':self.child_model._meta.app_label,
-				'model':self.child_model.__name__,
-				'lookup':self.parent_lookup,
-				'value':"$VALUE$"
-			}
-		)
+        widget_ids = []
+        for i, widget in enumerate(self.widgets):
+            widget_ids.append(id_ + name + '_%s' % i)
+            try:
+                widget_value = value[i]
+            except IndexError:
+                widget_value = None
+            if id_:
+                final_attrs = dict(final_attrs, id='%s_%s' % (id_, i))
+            output.append(widget.render(name + '_%s' % i,
+                                        widget_value,
+                                        final_attrs))
+
+        json_url = reverse(
+            'json_list',
+            kwargs={
+                'app': self.child_model._meta.app_label,
+                'model': self.child_model.__name__,
+                'lookup': self.parent_lookup,
+                'value': "$VALUE$"
+            }
+        )
 
 
-		out_script = SELECT_SCRIPT % {'id':id_, 'url':json_url}
+        out_script = SELECT_SCRIPT % {'id': id_, 'url': json_url}
 
-		output.append(out_script)
+        output.append(out_script)
 
-		return mark_safe(self.format_output(output))
+        return mark_safe(self.format_output(output))
