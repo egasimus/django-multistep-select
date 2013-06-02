@@ -1,7 +1,7 @@
 from django import forms
 
 from .models import *
-from multistep_select.widgets import MultiStepSelect
+from multistep_select.widgets import SimpleFilterSelect
 
 
 class SimpleFooForm(forms.ModelForm):
@@ -10,16 +10,18 @@ class SimpleFooForm(forms.ModelForm):
         fields = ('name', 'color')
 
 
-class FooByColorSelect(MultiStepSelect):
-    pass
-
-
 class FilterBarForm(forms.ModelForm):
     class Meta:
         model = FilterBar
         fields = ('name', )
-    foo = forms.ModelChoiceField(widget=FooByColorSelect,
-                                 queryset=SimpleFoo.objects.all())
+
+    foo = forms.ModelChoiceField(
+        widget=SimpleFilterSelect(names=['colorpick', 'foo'],
+                                  choices=[SimpleFoo.COLORS,
+                                           SimpleFoo.objects.all()],
+                                  relations=['color']),
+        queryset=SimpleFoo.objects.all()
+    )
 
 
 class GenericBazForm(forms.ModelForm):

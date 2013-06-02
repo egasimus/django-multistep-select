@@ -36,6 +36,8 @@
 
     <h2>Add another <strong>{{ object_name }}</strong></h2>
 
+    {{ form.errors }}
+
     <form method="post" action="">
 
         {{ form.as_p }}
@@ -46,11 +48,6 @@
 
 </section>
 
-{% for script in form.media.render_js %}
-
-    {{ script }}
-    <script src="{{ script }}"></script>
-
-{% endfor %}
+{{ form.media.js }}
 
 {% endblock %}
