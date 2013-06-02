@@ -36,5 +36,6 @@ WSGI_APPLICATION = 'wsgi.application'
 
 INSTALLED_APPS = (
     'django.contrib.staticfiles',
+    'django.contrib.contenttypes',
     'test_app',
 )

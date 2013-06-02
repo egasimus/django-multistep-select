@@ -1,8 +1,11 @@
 from django.conf.urls import patterns, url
-from .views import Home
+import views
 
 urlpatterns = patterns(
     '',
 
-    url(r'^$', Home.as_view(), name='home'),
+    url(r'^$', views.Home.as_view(), name='home'),
+    url(r'^foo/$', views.JustFooCreate.as_view(), name='foo'),
+    url(r'^filter/$', views.FilterBarCreate.as_view(), name='filter'),
+    url(r'^generic/$', views.GenericBazCreate.as_view(), name='generic'),
 )
