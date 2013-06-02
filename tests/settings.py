@@ -35,5 +35,6 @@ ROOT_URLCONF = 'urls'
 WSGI_APPLICATION = 'wsgi.application'
 
 INSTALLED_APPS = (
-    'tests'
+    'django.contrib.staticfiles',
+    'test_app',
 )

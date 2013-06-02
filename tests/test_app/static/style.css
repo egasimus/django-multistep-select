@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 16px;
+    font-size: 16px;
+    font-family: Open Sans, Segoe UI, Verdana, sans-serif;
+    line-height: 1.5;
+    background: #fafafa;
+    color: #555;
+}
+
+p, ul {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+    li {
+        margin-bottom: 16px;
+    }
+
+a, a:active, a:visited {
+    color: #558822;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #77aa55;
+}
