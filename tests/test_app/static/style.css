@@ -1,22 +1,57 @@
 body {
     margin: 0;
     padding: 32px 16px 16px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+body,
+input,
+select {
     font-size: 16px;
     font-family: Open Sans, Segoe UI, Verdana, sans-serif;
     line-height: 1.5;
     background: #fafafa;
     color: #555;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
-p, ul {
+input,
+select {
+    border: 1px solid #ccddaa;
+}
+
+h1,
+h2 {
+    font-weight: normal;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+section + section {
+    margin-top: 64px;
+}
+
+p,
+ul {
     margin-top: 0;
     margin-bottom: 24px;
 }
     li {
         margin-bottom: 16px;
     }
+
+form p {
+    margin-bottom: 8px;
+}
 
 a, a:active, a:visited {
     text-decoration: none;
@@ -33,4 +68,33 @@ kbd {
     border: 1px solid #ccddaa;
     border-radius: 3px;
     padding: 0 6px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+}
+    tr {
+        border-left: 1px solid #ccddaa;
+        border-right: 1px solid #ccddaa;
+    }
+    tr:last-child {
+        border-bottom: 1px solid #ccddaa;
+    }
+    th {
+        padding: 6px 6px 0;
+        vertical-align: bottom;
+        background: #77aa55;
+        color: white;
+        text-shadow: 0 -1px 0 #558822;
+    }
+    td {
+        padding: 0 6px;
+        vertical-align: top;
+    }
+
+.goBack {
+    display: block;
+    text-align: right;
 }

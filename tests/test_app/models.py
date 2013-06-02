@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
 
-class JustFoo(models.Model):
+class SimpleFoo(models.Model):
     name = models.CharField(max_length=50)
 
     RED = 0
@@ -18,7 +18,7 @@ class JustFoo(models.Model):
 
 class FilterBar(models.Model):
     name = models.CharField(max_length=50)
-    foo = models.ForeignKey(JustFoo)
+    foo = models.ForeignKey(SimpleFoo)
 
 
 class GenericBaz(models.Model):
@@ -26,4 +26,4 @@ class GenericBaz(models.Model):
 
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
-    foo = generic.GenericForeignKey()
+    content_object = generic.GenericForeignKey()
