@@ -1,37 +1,64 @@
-from django.core.urlresolvers import reverse
+# from django.core.exceptions import ImproperlyConfigured
+# from django.core.urlresolvers import reverse
 from django.forms.widgets import Select, MultiWidget
-from django.utils.safestring import mark_safe
+# from django.utils.safestring import mark_safe
 
 
-SELECT_SCRIPT = """"""
-
-
-class TwoStepSelect(MultiWidget):
+class BaseMultiStepSelect(MultiWidget):
+    subwidget_choices = []
+    subwidget_names = []
 
     class Media:
         js = ('multistep_select/multistep_select.js', )
 
     def __init__(self, attrs=None, **kwargs):
-        self.parent_model = kwargs.get('parent_model')
-        self.parent_choices = [('', '---')]
-        self.parent_choices.extend(
-            [(p.pk, p) for p in self.parent_model.objects.all()])
+        self.subwidget_choices = self.get_subwidget_choices()
+        self.subwidget_names = self.get_subwidget_names()
 
-        self.child_model = kwargs.get('child_model')
+        widgets = []
+        for choices in self.subwidget_choices:
+            widgets.append(Select(attrs=attrs, choices=choices))
 
-        self.parent_lookup = kwargs.get('parent_lookup')
-        self.child_lookup = kwargs.get('child_lookup')
+        super(BaseMultiStepSelect, self).__init__(tuple(widgets), attrs)
 
-        widgets = (
-            Select(attrs=attrs, choices=self.parent_choices),
-            Select(attrs=attrs, choices=[('', '---')])
-        )
-        super(TwoStepSelect, self).__init__(widgets, attrs)
+    def get_subwidget_choices(self):
+        """ Returns a list of lists of possible choices for each
+            subwidget. You'll most likely want to implement custom logic
+            in this method to make widgets interdependent (see below
+            for an example in FilterMultiStepSelect). """
+
+        return self.subwidget_choices
+
+    def get_subwidget_names(self):
+        """ Implementing this method allows for generating subwidget
+            names on the fly. For example, one can  """
+
+        return self.subwidget_names
 
     def value_from_datadict(self, data, files, name):
-        return data.get(name + "_1", None)
+        """ Given a data dict matching the names and values of submitted
+            data, returns the final value of the widget. """
+
+        raise NotImplemented("You need to implement the value_from_datadict"
+                             " method of this MultiStepSelect.")
 
     def decompress(self, value):
+        """ The opposite of value_from_datadict. Given the final value
+            of the widget, determines what values should the individual
+            subwidgets have. """
+
+        raise NotImplemented("You need to implement the decompress method of"
+                             " this MultiStepSelect.")
+
+
+
+class FilterMultiStepSelect(BaseMultiStepSelect):
+
+    def decompress(self, value):
+        """ The opposite of value_from_datadict. Given the final value
+            of the widget, determines what values should the individual
+            subwidgets have. """
+
         if value:
             try:
                 child_instance = self.child_model.objects.get(pk=value)
@@ -49,46 +76,3 @@ class TwoStepSelect(MultiWidget):
                 return [None, None]
 
         return [None, None]
-
-    def render(self, name, value, attrs=None):
-        if self.is_localized:
-            for widget in self.widgets:
-                widget.is_localized = self.is_localized
-
-        if not isinstance(value, list):
-            value = self.decompress(value)
-
-        output = []
-        final_attrs = self.build_attrs(attrs)
-
-        id_ = final_attrs.get('id', None)
-
-        widget_ids = []
-        for i, widget in enumerate(self.widgets):
-            widget_ids.append(id_ + name + '_%s' % i)
-            try:
-                widget_value = value[i]
-            except IndexError:
-                widget_value = None
-            if id_:
-                final_attrs = dict(final_attrs, id='%s_%s' % (id_, i))
-            output.append(widget.render(name + '_%s' % i,
-                                        widget_value,
-                                        final_attrs))
-
-        json_url = reverse(
-            'json_list',
-            kwargs={
-                'app': self.child_model._meta.app_label,
-                'model': self.child_model.__name__,
-                'lookup': self.parent_lookup,
-                'value': "$VALUE$"
-            }
-        )
-
-
-        out_script = SELECT_SCRIPT % {'id': id_, 'url': json_url}
-
-        output.append(out_script)
-
-        return mark_safe(self.format_output(output))

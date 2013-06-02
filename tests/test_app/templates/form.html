@@ -46,4 +46,11 @@
 
 </section>
 
+{% for script in form.media.render_js %}
+
+    {{ script }}
+    <script src="{{ script }}"></script>
+
+{% endfor %}
+
 {% endblock %}
