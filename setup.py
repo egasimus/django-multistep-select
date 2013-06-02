@@ -4,7 +4,7 @@ import sys
 import codecs
 from fnmatch import fnmatchcase
 from distutils.util import convert_path
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 def read(*parts):
@@ -115,7 +115,7 @@ setup(
     long_description=read('README.rst'),
     author='Adam Avramov',
     author_email='fallenblood@gmail.com',
-    packages=find_packages(),
+    packages=['multistep_select'],
     package_data=find_package_data(),
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -128,6 +128,6 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Topic :: Internet :: WWW/HTTP',
     ],
-    zip_safe=False,
+    zip_safe=True,
     install_requires=[],
 )
