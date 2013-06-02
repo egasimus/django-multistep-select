@@ -15,7 +15,8 @@ class SimpleFoo(models.Model):
     color = models.PositiveSmallIntegerField(blank=True, null=True,
                                              choices=COLORS)
 
-    def get_second_field_name(self):
+    @classmethod
+    def get_second_field_name(cls):
         return 'Color'
 
     def get_second_field_display(self):
@@ -26,7 +27,8 @@ class FilterBar(models.Model):
     name = models.CharField(max_length=50)
     foo = models.ForeignKey(SimpleFoo)
 
-    def get_second_field_name(self):
+    @classmethod
+    def get_second_field_name(cls):
         return 'Related Foo'
 
     def get_second_field_display(self):
@@ -40,7 +42,8 @@ class GenericBaz(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey()
 
-    def get_second_field_name(self):
+    @classmethod
+    def get_second_field_name(cls):
         return 'Related Object'
 
     def get_second_field_display(self):
