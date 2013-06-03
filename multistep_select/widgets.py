@@ -17,7 +17,8 @@ class BaseMultiStepSelect(MultiWidget):
         widgets = []
         for c in self.get_subwidget_choices():
             if isinstance(c, QuerySet):
-                """ Handle QuerySets passed as choice lists. """
+                """ Handle QuerySets passed as choice lists.
+                    TODO: More robust handling of various iterables. """
                 c = zip(c.values_list('pk', flat=True), c)
             widgets.append(Select(attrs=attrs, choices=c))
 
@@ -51,7 +52,12 @@ class BaseMultiStepSelect(MultiWidget):
 
 
 class SimpleFilterSelect(BaseMultiStepSelect):
-    """ Implements one common use case for a multi-step select widget,
+    """ TODO: Abstract away from handling querysets, and use 3-tuples
+              (value, text, relation_value) instead. This will also
+              allow for code reuse between this and
+              GenericRelationWidget.
+
+        Implements one common use case for a multi-step select widget,
         allowing the user to filter through a multitude of choices by
         traversing a tree-like path:
 
@@ -149,3 +155,40 @@ class SimpleFilterSelect(BaseMultiStepSelect):
             choices = choice_lists.pop()
 
         return values
+
+
+class GenericRelationWidget(BaseMultiStepSelect):
+    """ A two-element select widget to choose a ContentType and an ID.
+        Works in conjunction with GenericRelationWidget and
+        GenericRelationFormMixin to provide better handling of
+        GenericRelations in models. """
+
+    def __init__(self, attrs=None, **kwargs):
+        super(GenericRelationWidget, self).__init__(attrs, **kwargs)
+
+    def value_from_datadict(self, data, files, name):
+        """ When queried about its value, return a (ctype, id) tuple. """
+        value = [widget.value_from_datadict(data, files, name + '_%s' % i)
+                 for i, widget in enumerate(self.widgets)]
+        return(value[-2], value[-1])
+
+    def get_subwidget_choices(self):
+        """ Return the list of models in one subwidget, and a
+            corresponding queryset in the other. """
+        return self.subwidget_choices
+
+    def decompress(self, value):
+        """ The opposite of value_from_datadict. Given the final value
+            of the widget, determines what values should be displayed by
+            the individual subwidgets. """
+
+        values = []
+
+        """ If the value is None, fill the values list with as many
+            None's as there are fields. """
+        if value is None:
+            for _ in range(0, len(self.get_subwidget_choices())):
+                values.append(None)
+            return values
+
+
