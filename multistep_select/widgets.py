@@ -122,28 +122,31 @@ class SimpleFilterSelect(BaseMultiStepSelect):
                 values.append(None)
             return values
 
-        """ We'll be iterating over relations in reverse order. """
+        """ We'll be iterating over relations in reverse order by
+            popping the last elements of those lists. """
         relations = self.subwidget_relations[:]
-        relations.reverse()
         choice_lists = self.get_subwidget_choices()[:]
-        choice_lists.reverse()
 
         """ On the first iteration, we get the last value and add it to
             the list. """
         val = value
         values.insert(0, val)
 
+        choices = choice_lists.pop()
+
         while len(relations) > 0:
             """ To determine the value for the next subwidget, we need
                 to get the current object, and look at the value of its
                 relation field. """
-            choices = choice_lists.pop()
             relation = relations.pop()
             try:
-                obj = choices.get(pk=value)
+                """ If choices is a queryset """
+                obj = choices.get(pk=val)
                 val = getattr(obj, relation)
             except AttributeError:
-                val = dict(choices).get(value)
+                """ If it's a list of tuples """
+                pass
             values.insert(0, val)
+            choices = choice_lists.pop()
 
         return values
