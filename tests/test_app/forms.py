@@ -18,7 +18,7 @@ class FilterBarForm(forms.ModelForm):
     foo = forms.ModelChoiceField(
         widget=SimpleFilterSelect(names=['colorpick', 'foo'],
                                   choices=[SimpleFoo.COLORS,
-                                           SimpleFoo.objects.all()],
+                                               SimpleFoo.objects.all()],
                                   relations=['color']),
         queryset=SimpleFoo.objects.all()
     )

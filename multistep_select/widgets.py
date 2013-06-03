@@ -1,4 +1,5 @@
 from django.core.exceptions import ImproperlyConfigured
+from django.db.models.query import QuerySet
 # from django.core.urlresolvers import reverse
 from django.forms.widgets import Select, MultiWidget
 # from django.utils.safestring import mark_safe
@@ -16,8 +17,12 @@ class BaseMultiStepSelect(MultiWidget):
         self.subwidget_choices = kwargs.pop('choices', self.subwidget_choices)
 
         widgets = []
-        for choices in self.get_subwidget_choices():
-            widgets.append(Select(attrs=attrs, choices=choices))
+        for c in self.get_subwidget_choices():
+            if isinstance(c, QuerySet):
+                """ Handle QuerySets passed as choice lists. """
+                c = zip(c.values_list('pk', flat=True), c)
+            widgets.append(Select(attrs=attrs, choices=c))
+
         super(BaseMultiStepSelect, self).__init__(tuple(widgets), attrs)
 
     def get_subwidget_choices(self):
