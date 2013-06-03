@@ -25,3 +25,6 @@ class GenericRelationField(Field):
         self.widget = GenericRelationWidget(choices=widget_choices)
 
         super(GenericRelationField, self).__init__(*args, **kwargs)
+
+    def to_python(self, value):
+        return [ContentType.objects.get_for_id(value[-2]), value[-1]]

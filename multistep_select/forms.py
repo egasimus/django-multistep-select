@@ -24,6 +24,8 @@ class GenericRelationFormMixin(object):
                     field.ct_field: cleaned_data[name][0],
                     field.id_field: cleaned_data[name][1]
                 })
+                self._meta.fields = \
+                    self._meta.fields + (field.ct_field, field.id_field)
                 del cleaned_data[name]
         return cleaned_data
 

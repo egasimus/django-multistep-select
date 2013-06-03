@@ -166,16 +166,16 @@ class GenericRelationWidget(BaseMultiStepSelect):
     def __init__(self, attrs=None, **kwargs):
         super(GenericRelationWidget, self).__init__(attrs, **kwargs)
 
+    def get_subwidget_choices(self):
+        """ TODO: Return the list of models in one subwidget, and a
+            corresponding queryset in the other. """
+        return self.subwidget_choices
+
     def value_from_datadict(self, data, files, name):
         """ When queried about its value, return a (ctype, id) tuple. """
         value = [widget.value_from_datadict(data, files, name + '_%s' % i)
                  for i, widget in enumerate(self.widgets)]
         return(value[-2], value[-1])
-
-    def get_subwidget_choices(self):
-        """ Return the list of models in one subwidget, and a
-            corresponding queryset in the other. """
-        return self.subwidget_choices
 
     def decompress(self, value):
         """ The opposite of value_from_datadict. Given the final value
