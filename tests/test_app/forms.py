@@ -2,7 +2,7 @@ from django import forms
 
 from .models import *
 from multistep_select.fields import GenericRelationField
-from multistep_select.forms import GenericRelationFormMixin
+from multistep_select.forms import GenericRelationModelFormMixin
 from multistep_select.widgets import SimpleFilterSelect
 
 
@@ -25,7 +25,7 @@ class FilterBarForm(forms.ModelForm):
     )
 
 
-class GenericBazForm(GenericRelationFormMixin, forms.ModelForm):
+class GenericBazForm(GenericRelationModelFormMixin, forms.ModelForm):
     class Meta:
         model = GenericBaz
         fields = ('name', 'content_object')
