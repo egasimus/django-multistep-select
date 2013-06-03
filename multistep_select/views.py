@@ -7,4 +7,5 @@ def json_list(request,app,model,lookup,value):
 	contentclass = content.model_class()
 	lookup_dict = { lookup:value }
 	queryset = contentclass.objects.filter(**lookup_dict)
-	return HttpResponse(serializers.serialize('json',queryset), mimetype='application/json')
+	return HttpResponse(serializers.serialize('json', queryset),
+                        mimetype='application/json')

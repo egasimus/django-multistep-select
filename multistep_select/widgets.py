@@ -6,14 +6,12 @@ from django.forms.widgets import Select, MultiWidget
 
 
 class BaseMultiStepSelect(MultiWidget):
-    subwidget_names = []
     subwidget_choices = []
 
     class Media:
         js = ('multistep_select/multistep_select.js', )
 
     def __init__(self, attrs=None, **kwargs):
-        self.subwidget_names = kwargs.pop('names', self.subwidget_names)
         self.subwidget_choices = kwargs.pop('choices', self.subwidget_choices)
 
         widgets = []
@@ -33,12 +31,6 @@ class BaseMultiStepSelect(MultiWidget):
             values (see below for an example in SimpleFilterSelect). """
 
         return self.subwidget_choices
-
-    def get_subwidget_names(self):
-        """ Implementing this method allows for generating subwidget
-            names on the fly. """
-
-        return self.subwidget_names
 
     def value_from_datadict(self, data, files, name):
         """ Given the data dict generated upon submitting the form,
@@ -99,10 +91,6 @@ class SimpleFilterSelect(BaseMultiStepSelect):
     def __init__(self, attrs=None, **kwargs):
         super(SimpleFilterSelect, self).__init__(attrs, **kwargs)
 
-        if len(self.subwidget_choices) != len(self.subwidget_names):
-            raise ImproperlyConfigured("List of names doesn't correspond to"
-                                       " list of lists of choices.")
-
         self.subwidget_relations = \
             kwargs.pop('relations', self.subwidget_relations)
 
@@ -112,6 +100,12 @@ class SimpleFilterSelect(BaseMultiStepSelect):
                                           len(self.subwidget_choices),
                                           len(self.subwidget_relations))
             raise ImproperlyConfigured(error_text)
+
+    def value_from_datadict(self, data, files, name):
+        """ Allow each field to process its value on its own. Then, just
+            return the value of the last one. """
+        return [widget.value_from_datadict(data, files, name + '_%s' % i)
+                for i, widget in enumerate(self.widgets)][-1]
 
     def decompress(self, value):
         """ The opposite of value_from_datadict. Given the final value

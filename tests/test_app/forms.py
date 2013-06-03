@@ -13,12 +13,11 @@ class SimpleFooForm(forms.ModelForm):
 class FilterBarForm(forms.ModelForm):
     class Meta:
         model = FilterBar
-        fields = ('name', )
+        fields = ('name', 'foo')
 
     foo = forms.ModelChoiceField(
-        widget=SimpleFilterSelect(names=['colorpick', 'foo'],
-                                  choices=[SimpleFoo.COLORS,
-                                               SimpleFoo.objects.all()],
+        widget=SimpleFilterSelect(choices=[SimpleFoo.COLORS,
+                                           SimpleFoo.objects.all()],
                                   relations=['color']),
         queryset=SimpleFoo.objects.all()
     )

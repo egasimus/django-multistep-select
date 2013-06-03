@@ -1,5 +1,5 @@
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, UpdateView
 
 from .models import *
 from .forms import *
@@ -25,13 +25,27 @@ class SimpleFooCreate(SimpleListMixin, CreateView):
     success_url = reverse_lazy('simple')
 
 
-class FilterBarCreate(SimpleListMixin, CreateView):
+class FilterBarMixin(SimpleListMixin):
     template_name = 'form.html'
     model = FilterBar
     form_class = FilterBarForm
+    success_url = reverse_lazy('filter')
 
 
-class GenericBazCreate(SimpleListMixin, CreateView):
+class FilterBarCreate(FilterBarMixin, CreateView): pass
+
+
+class FilterBarUpdate(FilterBarMixin, UpdateView): pass
+
+
+class GenericBazMixin(SimpleListMixin):
     template_name = 'form.html'
     model = GenericBaz
     form_class = GenericBazForm
+    success_url = reverse_lazy('generic')
+
+
+class GenericBazCreate(GenericBazMixin, CreateView): pass
+
+
+class GenericBazUpdate(GenericBazMixin, UpdateView): pass
