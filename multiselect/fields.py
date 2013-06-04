@@ -29,29 +29,25 @@ class GenericRelationField(ChoiceField):
             ContentType.objects.get_for_model(x.model).pk,
             ContentType.objects.get_for_model(x.model)
         ) for x in value]
-        object_choices = \
+        object_choices = list(
             chain(*[zip(x.values_list('pk', flat=True), x) for x in value])
+        )
 
         self._choices = self.widget.choices = (
             ctype_choices,
             object_choices
         )
 
-        print self._choices
-
     choices = property(_get_choices, _set_choices)
 
     def to_python(self, value):
-        return [ContentType.objects.get_for_id(value[-2]), value[-1]]
+        ct = ContentType.objects.get_for_id(value[-2])
+        return [ct, ct.model_class().objects.get(pk=value[-1])]
 
     def valid_value(self, value):
-        valid = False
+        valid = []
 
-        for n, val in enumerate(value):
-            for k, v in self.choices[n]:
-                if val == smart_text(k):
-                    valid = True
-                else:
-                    return False
+        for x, v in enumerate(value):
+            valid.append(v in dict(self.choices[x]).values())
 
-        return valid
+        return all(valid)

@@ -29,7 +29,7 @@ class GenericRelationModelFormMixin(object):
             if isinstance(field, GenericRelationField):
                 cleaned_data.update({
                     field.ct_field: cleaned_data[name][0],
-                    field.id_field: cleaned_data[name][1]
+                    field.id_field: cleaned_data[name][1].pk
                 })
                 self._meta.fields += (field.ct_field, field.id_field)
                 del cleaned_data[name]
