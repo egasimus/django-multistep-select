@@ -192,3 +192,6 @@ class GenericRelationWidget(BaseMultiStepSelect):
             return values
 
 
+class OptGroupSelect(Select):
+    """ Represents multiple sets of choices as <optgroup> elements. """
+    pass

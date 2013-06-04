@@ -1,9 +1,9 @@
 from django import forms
 
 from .models import *
-from multistep_select.fields import GenericRelationField
-from multistep_select.forms import GenericRelationModelFormMixin
-from multistep_select.widgets import SimpleFilterSelect
+from multiselect.fields import GenericRelationField
+from multiselect.forms import GenericRelationModelFormMixin
+from multiselect.widgets import SimpleFilterSelect, OptGroupSelect
 
 
 class SimpleFooForm(forms.ModelForm):
@@ -30,8 +30,6 @@ class GenericBazForm(GenericRelationModelFormMixin, forms.ModelForm):
         model = GenericBaz
         fields = ('name', 'content_object')
 
-    content_object = GenericRelationField(choices=[
-        FilterBar.objects.all(),
-        SimpleFoo.objects.all(),
-        GenericBaz.objects.all()
-    ])
+    content_object = GenericRelationField(choices=[FilterBar.objects.all(),
+                                                   SimpleFoo.objects.all(),
+                                                   GenericBaz.objects.all()])

@@ -1,0 +1,1189 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ac",
+				"access_level"
+			],
+			[
+				"text",
+				"textInput--big"
+			],
+			[
+				"get_",
+				"get_drafts"
+			],
+			[
+				"emplo",
+				"employee__team"
+			],
+			[
+				"emp",
+				"employee__team"
+			],
+			[
+				"get_cu",
+				"get_current_own_objects"
+			],
+			[
+				"Chu",
+				"ChunkFiveRegular"
+			],
+			[
+				"bas",
+				"base-font-size"
+			],
+			[
+				"base",
+				"base-spacing-unit"
+			],
+			[
+				"devplan",
+				"devplans_for"
+			],
+			[
+				"appraisals",
+				"appraisals_for"
+			],
+			[
+				"Ph",
+				"PhraseList"
+			],
+			[
+				"ta",
+				"table-cell"
+			],
+			[
+				"au",
+				"auto_now_add"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"Sta",
+				"StatusChangeView"
+			],
+			[
+				"Dev",
+				"DevPlanList"
+			],
+			[
+				"App",
+				"Appraisal"
+			],
+			[
+				"cha",
+				"change_status_to"
+			],
+			[
+				"Stat",
+				"StatusChangeView"
+			],
+			[
+				"Ob",
+				"ObjectiveMixin"
+			],
+			[
+				"Bac",
+				"BaseLaunchView"
+			],
+			[
+				"get_a",
+				"get_absolute_url"
+			],
+			[
+				"lo",
+				"log_action_as"
+			],
+			[
+				"li",
+				"light-brand"
+			],
+			[
+				"objec",
+				"object_name"
+			],
+			[
+				"LEVE",
+				"LEVEL_INACTIVE"
+			],
+			[
+				"O",
+				"ObjectiveComplete"
+			],
+			[
+				"De",
+				"DevPlanComplete"
+			],
+			[
+				"responsible",
+				"responsible_employee"
+			],
+			[
+				"reqe",
+				"request_user"
+			],
+			[
+				"cleane",
+				"cleaned_data"
+			],
+			[
+				"req",
+				"request_user"
+			],
+			[
+				"te",
+				"textInput--big"
+			],
+			[
+				"arc",
+				"archiveview_factory"
+			],
+			[
+				"for",
+				"form_valid"
+			],
+			[
+				"DevPla",
+				"DevPlanUpdate"
+			],
+			[
+				"DE",
+				"DevPlanCreate"
+			],
+			[
+				"upda",
+				"updated_objs"
+			],
+			[
+				"get",
+				"get_updated_objects"
+			],
+			[
+				"up",
+				"updated_objs"
+			],
+			[
+				"my",
+				"my_last_view"
+			],
+			[
+				"e",
+				"extend"
+			],
+			[
+				"S",
+				"StatusAwareModel"
+			],
+			[
+				"con",
+				"content_object"
+			],
+			[
+				"de",
+				"decorator"
+			],
+			[
+				"noti",
+				"notify_action"
+			],
+			[
+				"tem",
+				"template_name"
+			],
+			[
+				"gr",
+				"group_by"
+			],
+			[
+				"sort",
+				"sort_key"
+			],
+			[
+				"se",
+				"sessionmaker"
+			],
+			[
+				"dec",
+				"declarative_base"
+			],
+			[
+				"pr",
+				"print_focused_window"
+			],
+			[
+				"p-",
+				"pos-a	position: absolute;"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"base-",
+				"base-spacing-unit"
+			],
+			[
+				"pjax",
+				"PJAX"
+			],
+			[
+				"ge",
+				"get_tabledata_by_month"
+			],
+			[
+				"dev",
+				"devplanitem_id"
+			],
+			[
+				"owe",
+				"owner_or_level_required"
+			],
+			[
+				"update",
+				"update_data"
+			],
+			[
+				"obj",
+				"object_name"
+			],
+			[
+				"send_",
+				"send_approved_notification"
+			],
+			[
+				"sta",
+				"start_date"
+			],
+			[
+				"MOCK_",
+				"MOCK_DATE"
+			],
+			[
+				"H",
+				"HAssignment"
+			],
+			[
+				"Mock",
+				"MockDateMetaclass"
+			],
+			[
+				"Moc",
+				"MockDateMetaclass"
+			],
+			[
+				"Mo",
+				"MockDate"
+			],
+			[
+				"HRe",
+				"HRequestPendingManager"
+			],
+			[
+				"HA",
+				"HAssignmentCreate"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"re",
+				"request_notify"
+			],
+			[
+				"son",
+				"song_url"
+			],
+			[
+				"get_c",
+				"_get_chartdata_by_day"
+			],
+			[
+				"Develop",
+				"DevelopmentPlanViewMixin"
+			],
+			[
+				"Scor",
+				"ScorecardView"
+			],
+			[
+				"view",
+				"view_decorator"
+			],
+			[
+				"mixe",
+				"__mixed_decorator"
+			],
+			[
+				"Ty",
+				"TypeType"
+			],
+			[
+				"Cl",
+				"ClassType"
+			],
+			[
+				"Fun",
+				"FunctionType"
+			],
+			[
+				"Nav",
+				"NavigationClass"
+			],
+			[
+				"HR",
+				"HRequestCreate"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"bae",
+				"base-font-size"
+			],
+			[
+				"ad",
+				"admin_required"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"fil",
+				"filter_map"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"qi",
+				"quad_business"
+			],
+			[
+				"inln",
+				"inline-block"
+			],
+			[
+				"ba",
+				"base-spacing-unit"
+			],
+			[
+				"al",
+				"albums_query"
+			],
+			[
+				"menu_",
+				"menu_position"
+			],
+			[
+				"c",
+				"ctype_id"
+			],
+			[
+				"Archib",
+				"ArchivableModel"
+			],
+			[
+				"cs",
+				"csrf_protect"
+			],
+			[
+				"apprai",
+				"appraisals_for"
+			],
+			[
+				"Comme",
+				"CommentForm"
+			],
+			[
+				"qu",
+				"quad_financial"
+			],
+			[
+				"feed_",
+				"feed_objects"
+			],
+			[
+				"HO",
+				"HOLIDAY_MIN_YEAR"
+			],
+			[
+				"ERRO",
+				"ERROR_MIN_YEAR"
+			],
+			[
+				"HOL",
+				"HOLIDAY_MAX_YEAR"
+			],
+			[
+				"HYe",
+				"test_HYearDetail"
+			],
+			[
+				"deci",
+				"decided_by"
+			],
+			[
+				"date",
+				"daterange"
+			],
+			[
+				"l",
+				"LeaveRequest"
+			],
+			[
+				"send_all",
+				"send_all_newsletters_view"
+			],
+			[
+				"ms",
+				"msg_objects"
+			],
+			[
+				"ME",
+				"MessageInline"
+			],
+			[
+				"mode",
+				"models"
+			],
+			[
+				"tot",
+				"total_email_count"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"fie",
+				"field_value"
+			],
+			[
+				"Fil",
+				"FilterableList"
+			],
+			[
+				"Act",
+				"ActionLogList"
+			],
+			[
+				"fiel",
+				"field_name"
+			],
+			[
+				"FI",
+				"FILTERABLE_VIEWS"
+			],
+			[
+				"Update",
+				"UpdateView"
+			],
+			[
+				"Create",
+				"CreateView"
+			],
+			[
+				"tablesor",
+				"tablesorter-headerDesc"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 60.0,
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"disco",
+				"Package Control: Discover Packages"
+			],
+			[
+				"package",
+				"Package Control: Disable Package"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"disabl",
+				"Package Control: Disable Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 386.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": true,
+		"side_bar_visible": false,
+		"status_bar_visible": true
+	},
+	"file_history":
+	[
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/forms/model_forms.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/util/permission_decorators.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/plans.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/status.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/fragments/detail_toolbar.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/views/factory_views.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/todo.txt",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/objective/detail.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_dashboard.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/views/notifications.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/objective.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/views/dashboard.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/dashboard/employee.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_detail.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/util/view_decorator.py",
+		"/D/adam/Snippets/django-multistep-select/tests/test_app/views.py",
+		"/D/adam/Snippets/django-multistep-select/multiselect/fields.py",
+		"/D/adam/Snippets/django-multistep-select/multiselect/forms.py",
+		"/D/adam/Snippets/django-multistep-select/tests/test_app/forms.py",
+		"/D/adam/Snippets/django-multistep-select/tests/test_app/models.py",
+		"/D/adam/Snippets/django-multistep-select/tests/test_app/tests.py",
+		"/D/adam/Snippets/django-multistep-select/multiselect/views.py",
+		"/D/adam/Snippets/django-multistep-select/multiselect/__init__.py",
+		"/D/adam/Snippets/django-multistep-select/multiselect/widgets.py",
+		"/D/adam/Snippets/django-multistep-select/multistep_select/forms.py",
+		"/D/adam/Snippets/django-multistep-select/multiselect/models.py",
+		"/D/adam/Snippets/django-multistep-select/multistep_select/fields.py",
+		"/D/adam/Snippets/django-multistep-select/multistep_select/widgets.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/forms/form_mixins.py",
+		"/D/adam/Snippets/django-multistep-select/multistep_select/__init__.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/mixins.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/scorecard.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/logging.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/conf/base.py",
+		"/D/adam/Maredudd/Rhegiadur/Env/Lib/site-packages/django/contrib/contenttypes/models.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/__init__.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/personnel.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/dashboard/scorecard_employee.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/objectives.py",
+		"/D/adam/James M/BSC/BSCEnv/Lib/site-packages/multistep_select/widgets.py",
+		"/D/adam/James M/BSC/BSCEnv/Lib/site-packages/multistep_select/forms.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/dashboard/scorecard_admin.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/fragments/objective_quadrants.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/employee/detail.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/scorecard/detail.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/objective/list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/my/objective_list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/models.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/forms/filter_forms.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/employee/list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/dashboard/admin.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/navigation/templates/sidebar/admin.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/views/__init__.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/urls.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/tests/admin.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/fragments/objective_form_js.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/fragments/load_objective_template.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/admin.py",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/static/scss/rheg/_layout.scss",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/static/scss/rheg/_relief.scss",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/static/scss/rheg/_boxes.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_common.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/dashboard/manager.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_button.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_forms.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/templates/comments/comment_section_inline.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/common/archive.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/common/launch.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_list.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/_vars.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_scorecard.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_headings.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/dashboard/dashboard.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_fonts.scss",
+		"/C/Users/Elli/AppData/Local/Temp/Rar$DIa0.906/stylesheet.css",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/holiday/templates/holiday/hyear/detail.html",
+		"/D/adam/James M/Opportunities/Oppo/Src/opportunities/apps/oppo_user/templates/dashboard.html",
+		"/C/Users/Elli/AppData/Local/Temp/scp16188/root/dysphonic/signme_1.55/data.dat",
+		"/C/Users/Elli/AppData/Local/Temp/scp15112/root/dysphonic/signme_1.55/README.txt",
+		"/C/Users/Elli/AppData/Local/Temp/scp15159/root/dysphonic/signme_1.55/log.dat.php",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/team/detail.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/inuit.css/_defaults.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/inuit.css/base/_headings.scss",
+		"/C/Users/Elli/AppData/Local/Temp/Rar$DIa0.623/stylesheet.css",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/static/css/style.css",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/navigation/templates/sidebar/employee.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/css/style.css",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_comments.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/company/list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/devplan/list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/group/list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/my/appraisal_list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/my/devplan_list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/scorecard/list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/team/list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/appraisal/list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/objectivetemplate/list.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/views/my.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/actionlog/list.html",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/apps/rheg/templates/rheg/phrase_list.html",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/apps/rheg/views.py",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/apps/rheg/templates/homepage.html",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/apps/rheg/templates/rheg/homepage.html",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/apps/rheg/templates/subscribe.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/templates/page.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/navigation/middleware.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/templates/comments/comment_section.html",
+		"/D/adam/Maredudd/Rhegiadur/RenderLetters/render_letters_imagemagick.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/conf/common/bsc.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/holiday/models.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_layout.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/dashboard/newsfeed.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/inuit.css/objects/_beautons.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/icomoon/_icomoon.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/admin.py",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/views.py",
+		"/D/adam/Projects/Asp/style.css",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/appraisal/detail.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/templates/bsc/appraisal/complete.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/templates/scripts.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/js/upload.js",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/templates/comments/comment_form.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/__init__.py",
+		"/D/adam/Projects/Asp/test1.html",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/style.scss",
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_stars.scss",
+		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/static/scss/rheg/_list.scss",
+		"/D/adam/Maredudd/Rhegiadur/Design/Rheg/list.html"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\",
+			"<open files>",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\*.html",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app\\conf",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\conf",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app\\apps",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Src\\rhegiadur",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app\\static\\scss\\bsc",
+			"D:\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app",
+			"DevPlan",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Lib\\site-packages\\django\\views\\generic",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app\\static\\scss",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app\\apps",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\bsc_app",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Design\\Rheg\\scss\\rheg",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Design\\Rheg",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc",
+			"D:\\adam\\UniServer\\www\\wp\\wp-content\\themes\\dysphonic",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\apps\\bsc\\views",
+			"D:\\adam\\UniServer\\www\\wp\\wp-content\\themes\\dysphonic",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc",
+			"D:\\adam\\Maredudd\\Mailinglist\\Src\\project",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\apps\\bsc\\templates",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\django",
+			"D:\\adam\\Maredudd\\Mailinglist\\Src\\project",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\apps\\bsc\\templates\\bsc",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc",
+			"D:\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\apps\\bsc\\templates\\",
+			"D:\\adam\\Maredudd\\Mailinglist\\Src\\django-mailinglist\\apps\\mailinglist",
+			"D:\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities",
+			"D:\\adam\\Maredudd\\Mailinglist\\Src\\django-mailinglist\\apps\\mailinglist",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\apps\\bsc",
+			"D:\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\*.py",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\",
+			"D:\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities,-*.js",
+			"D:\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\static\\scss\\bsc",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Src\\python",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Lib\\site-packages\\django\\views\\generic",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Src\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\static\\scss",
+			"D:\\adam\\James M\\Opportunities\\Oppo\\",
+			"D:\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\static\\scss\\bsc",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Lib",
+			"D:\\adam\\James M\\BSC\\BSCEnv\\Src",
+			"D:\\adam\\James M\\BSC",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\extra_views",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\django",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\django\\forms",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\extra_views",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Src\\python\\apps\\rhegiadur",
+			"D:\\adam\\James M\\BSC\\BSCEnv",
+			"D:\\adam\\James M\\BSC\\PHP System",
+			"D:\\adam\\James M\\BSC\\BSCEnv",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\crispy_forms\\",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\django\\views",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\django\\views\\generic",
+			"D:\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\extra_views",
+			"D:\\adam,",
+			"D:\\adam",
+			"D:\\elli\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities\\apps\\oppo\\templates,D:\\elli\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities\\apps\\oppo_charts\\templates,D:\\elli\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities\\apps\\oppo_user\\templates,D:\\elli\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities\\templates",
+			"D:\\elli\\adam\\Maredudd\\Rhegiadur\\Env\\Lib\\site-packages\\django\\contrib\\admin",
+			"D:\\elli\\adam\\Maredudd\\Rhegiadur\\Env\\Src\\python",
+			"D:\\elli\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities",
+			"D:\\elli\\adam\\James M\\Opportunities\\Oppo\\Lib\\site-packages\\django\\views\\generic",
+			"D:\\elli\\adam\\James M\\Opportunities\\Oppo\\Src\\opportunities",
+			"D:\\elli\\adam\\Maredudd\\CLCC\\Code\\CLLC_Env\\",
+			"D:\\elli\\adam\\Maredudd\\Code\\CLLC_Env\\Src\\apps\\golygyddol"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"objectives",
+			"--borderless",
+			"filtertemplates",
+			"target =",
+			"FixTinyMCEMixin",
+			"Employee",
+			"quad",
+			".employee",
+			"_created",
+			"StatusAwareMixin",
+			"BaseObjective",
+			"quad",
+			"quad_",
+			"quad",
+			"quad_",
+			"superior",
+			"objtemplate",
+			"objectivetemplate",
+			"'ObjectiveTemplate', ",
+			"objective_form_js",
+			"objectivetem",
+			"objectivetemplate",
+			".regular",
+			"font-family",
+			"appraisal",
+			"objective",
+			"Objective",
+			"objs = ",
+			"annotated_title",
+			"}s{",
+			"\">",
+			"%}",
+			"get_quadrants",
+			"krip",
+			"нещата",
+			"krip",
+			"log",
+			"--",
+			"half-padder",
+			".inlineBox",
+			"titlefont",
+			"extract",
+			".padder",
+			";\n",
+			".padder",
+			"padder",
+			"is_admin",
+			"fullwidth",
+			"&:hover",
+			"possible",
+			"e.target.value",
+			"content:",
+			"12px",
+			"topEntry",
+			"td",
+			"get_or_create",
+			"get_or_create_user",
+			".create",
+			"get_or_create_user",
+			".create",
+			"crud_test",
+			"action_name",
+			"log_archive",
+			"StatusAwareMixin",
+			"statusaware",
+			"complete",
+			"print",
+			"print pk",
+			"print",
+			"appraisalcomplete",
+			"CompleteView",
+			"obj",
+			"__name__",
+			"_",
+			"__name__",
+			"verbose_name.",
+			"object_name",
+			"__get_re",
+			"initial",
+			"class ModelForm",
+			"i--add",
+			"format_html",
+			"padding: $base",
+			"'newsfeed'",
+			"newsfeed",
+			"[:1]",
+			"model__field__value--small",
+			"i--add",
+			"add",
+			"enter",
+			"objectives",
+			"get_navigation",
+			".rendered",
+			"not_archived",
+			"get_owners",
+			"action",
+			"comment.content_object",
+			"owners",
+			"batch",
+			".i-",
+			"office",
+			"\\",
+			"ActionLog",
+			"print",
+			"httpresponseredirect",
+			"httpresponse",
+			"notifica",
+			"tasks",
+			"celery",
+			"form_valid",
+			"print",
+			"inlinebox",
+			"inline",
+			"#ddd",
+			"filterForm",
+			"modelclass",
+			"get_nav_title",
+			"()\n",
+			"dotBefore",
+			"dotAfter",
+			"dotBefore",
+			"dot--",
+			"list__",
+			"escape",
+			"inlinebox",
+			"--active",
+			"__active",
+			"model__buttons"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"TinyMCEFixinMixin",
+			"_by",
+			"StatusAwareModel",
+			"StatusAwareMixin",
+			"",
+			"objtemplate",
+			"scorecard",
+			"Scorecard",
+			"render_title",
+			"render_quadrants",
+			"titleFont",
+			"c",
+			"$(this).val()",
+			"24px",
+			"6px",
+			"listEntry",
+			"th",
+			"create",
+			"create_user",
+			".get_or_create",
+			"create_user",
+			".get_or_create",
+			"verbose_action_name",
+			"StatusAwareModel",
+			"StatusChangeView",
+			"self.object",
+			"employee",
+			"model__field__text--frameless",
+			"i--plus",
+			"",
+			"obj",
+			".i--",
+			"company",
+			"\\\\",
+			"quadrantBefore",
+			"quadrant--",
+			"",
+			" _active",
+			"_active",
+			"topRightButtons",
+			"btnBar",
+			"_pjax_body",
+			"$link",
+			"",
+			"(",
+			"referrer",
+			"bodyContainer",
+			"page_obj",
+			"",
+			"Appraisal",
+			"self.VIEW_SUFFIXES",
+			"TestManager",
+			"&middot;",
+			"reverse",
+			"'bsc:'",
+			"self.prefix",
+			"reverse_lazy",
+			"n",
+			"as_403",
+			"as_200",
+			"as403",
+			"hreq",
+			"hass",
+			"",
+			"datetime.date.",
+			"THIS_YEAR",
+			"obj",
+			"&mdash;",
+			"rheg",
+			"object",
+			"object_list",
+			"'''",
+			"get_tabledata_by_month",
+			"get_chartdata_by_day",
+			"nav",
+			"devplan",
+			"DevPlan",
+			"view_decorator",
+			"",
+			"actual_decorator",
+			"__view_decorator",
+			"cls",
+			"",
+			"my_",
+			"{% block innercontent %}",
+			"link",
+			"",
+			"$reliefSize",
+			"RANDOM_Y",
+			"owners",
+			"td",
+			"sidebar__section",
+			"",
+			"t_name",
+			"inc_t",
+			"",
+			"width",
+			",\\n",
+			"X_UNIT",
+			"|escape_html|safe",
+			"|escape_html",
+			"models.TextField",
+			"музика",
+			"get_template_part( 'partials/content'",
+			"song",
+			"<li class=\"alphabet__letter\"><a href=\"\">",
+			"newsfeed",
+			"Newsfeed",
+			"<div class=\"link\"><a href=\"#\">",
+			"false",
+			"$albums_query",
+			"menu",
+			"Employee",
+			"GenericRelation(Comment)",
+			"appr_for",
+			"self.",
+			"appraisal",
+			"end_date",
+			"start_date",
+			"Holiday",
+			"objects",
+			"send_newsletter",
+			"nl",
+			"newsletters",
+			"objects",
+			"coverage",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/adam/Maredudd/Rhegiadur/Rhegiadur.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 206.0,
+	"status_bar_visible": true
+}
