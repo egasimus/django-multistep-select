@@ -108,14 +108,14 @@ def find_package_data(where='.', package='',
 
 setup(
     name="django-multistep-select",
-    version=find_version("multistep_select", "__init__.py"),
+    version=find_version("multiselect", "__init__.py"),
     url='',
     license='MIT',
     description="Provides a multi-step select widget.",
     long_description=read('README.rst'),
     author='Adam Avramov',
     author_email='fallenblood@gmail.com',
-    packages=['multistep_select'],
+    packages=['multiselect'],
     package_data=find_package_data(),
     classifiers=[
         'Development Status :: 3 - Alpha',
