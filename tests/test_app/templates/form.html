@@ -39,7 +39,11 @@
 
 <section>
 
-    <h2>Add another <strong>{{ object_name }}</strong></h2>
+    {% if show_object_list %}
+        <h2>Add another <strong>{{ object_name }}</strong></h2>
+    {% else %}
+        <h2>Edit this object</h2>
+    {% endif %}
 
     {{ form.errors }}
 

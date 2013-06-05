@@ -43,9 +43,7 @@ class GenericRelationField(ChoiceField):
         return [ct, ct.model_class().objects.get(pk=value[-1])]
 
     def valid_value(self, value):
-        valid = []
-
         for x, v in enumerate(value):
-            valid.append(v in dict(self.choices[x]).values())
-
-        return all(valid)
+            if v not in [y[1] for y in self.choices[x]]:
+                return False
+        return True
