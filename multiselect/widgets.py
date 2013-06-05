@@ -248,10 +248,6 @@ class GenericRelationSelect(Select):
                     subchoices = subchoices + (subchoice, )
                 value = value + ((ct, subchoices),)
 
-
         self._choices = value
-        from pprint import pprint
-        pprint(value)
-        print self.render('', '')
 
     choices = property(_get_choices, _set_choices)
