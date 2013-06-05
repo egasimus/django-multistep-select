@@ -34,7 +34,10 @@ class GenericRelationModelFormMixin(object):
 
     def _split_generic_fields(self, cleaned_data):
         for name, field in self.fields.items():
-            if isinstance(field, GenericRelationField):
+            if (
+                isinstance(field, GenericRelationField)
+                and name in cleaned_data
+            ):
                 cleaned_data.update({
                     field.ct_field: cleaned_data[name][0],
                     field.fk_field: cleaned_data[name][1].pk

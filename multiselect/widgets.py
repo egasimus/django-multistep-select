@@ -2,6 +2,7 @@ import warnings
 
 from django.core.exceptions import ImproperlyConfigured
 from django.contrib.contenttypes.models import ContentType
+from django.db.models import Model
 from django.db.models.query import QuerySet
 # from django.core.urlresolvers import reverse
 from django.forms.widgets import Select, MultiWidget
@@ -260,12 +261,16 @@ class GenericRelationSelect(Select):
             .split(self.separator)
 
     def render(self, name, value, attrs=None, choices=()):
-        if isinstance(value, object):
+        """ TODO: Make sure that this method consistently receives the
+            same type of value, preferably a tuple or list of pks, not
+            a model instance. Model handling isn't the widget's job. """
+
+        if isinstance(value, Model):
             value = self.get_format_string() % (
                 ContentType.objects.get_for_model(value).pk,
                 value.pk
             )
-        else:
-            value = ''
+        elif not isinstance(value, list):
+            value = []
         return super(GenericRelationSelect, self).render(name, value,
                                                          attrs, choices)
