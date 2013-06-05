@@ -4,16 +4,28 @@
 		"selected_items":
 		[
 			[
+				"Gener",
+				"GenericRelationSelect"
+			],
+			[
+				"get_",
+				"get_subwidget_choices"
+			],
+			[
+				"subwidge",
+				"subwidget_choices"
+			],
+			[
+				"obj",
+				"object_id"
+			],
+			[
 				"ac",
 				"access_level"
 			],
 			[
 				"text",
 				"textInput--big"
-			],
-			[
-				"get_",
-				"get_drafts"
 			],
 			[
 				"emplo",
@@ -254,10 +266,6 @@
 			[
 				"update",
 				"update_data"
-			],
-			[
-				"obj",
-				"object_name"
 			],
 			[
 				"send_",
@@ -506,19 +514,83 @@
 			[
 				"Update",
 				"UpdateView"
-			],
-			[
-				"Create",
-				"CreateView"
-			],
-			[
-				"tablesor",
-				"tablesorter-headerDesc"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "multiselect/fields.py",
+			"settings":
+			{
+				"buffer_size": 1474,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "multiselect/widgets.py",
+			"settings":
+			{
+				"buffer_size": 9632,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/adam/Python27/Lib/site-packages/django/forms/widgets.py",
+			"settings":
+			{
+				"buffer_size": 35142,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "multiselect/__init__.py",
+			"settings":
+			{
+				"buffer_size": 202,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/adam/Maredudd/Rhegiadur/Env/Lib/site-packages/django/forms/fields.py",
+			"settings":
+			{
+				"buffer_size": 40622,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "multiselect/forms.py",
+			"settings":
+			{
+				"buffer_size": 1666,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/adam/Python27/Lib/site-packages/django/forms/fields.py",
+			"settings":
+			{
+				"buffer_size": 40622,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "multiselect/views.py",
+			"settings":
+			{
+				"buffer_size": 470,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tests/test_app/forms.py",
+			"settings":
+			{
+				"buffer_size": 1196,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -608,6 +680,11 @@
 	},
 	"file_history":
 	[
+		"/D/adam/Python27/Lib/site-packages/django/forms/widgets.py",
+		"/D/adam/Python27/Lib/site-packages/django/forms/models.py",
+		"/D/adam/Python27/Lib/site-packages/django/forms/fields.py",
+		"/D/adam/Maredudd/Rhegiadur/Env/Lib/site-packages/django/forms/fields.py",
+		"/D/adam/Maredudd/Rhegiadur/Env/Lib/site-packages/django/forms/widgets.py",
 		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/forms/model_forms.py",
 		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/util/permission_decorators.py",
 		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/bsc/models/plans.py",
@@ -730,12 +807,7 @@
 		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/templates/scripts.html",
 		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/js/upload.js",
 		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/templates/comments/comment_form.html",
-		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/__init__.py",
-		"/D/adam/Projects/Asp/test1.html",
-		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/style.scss",
-		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/static/scss/bsc/_stars.scss",
-		"/D/adam/Maredudd/Rhegiadur/Env/Src/rhegiadur/static/scss/rheg/_list.scss",
-		"/D/adam/Maredudd/Rhegiadur/Design/Rheg/list.html"
+		"/D/adam/James M/BSC/BSCEnv/Src/bsc/bsc_app/apps/comments/__init__.py"
 	],
 	"find":
 	{
@@ -743,9 +815,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"D:\\adam\\Snippets\\django-multistep-select",
 			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\",
 			"<open files>",
 			"D:\\adam\\James M\\BSC\\BSCEnv\\Src\\bsc\\*.html",
@@ -842,6 +915,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"GenericRelationWidget",
+			"BaseMultiStepSelect",
+			"print",
+			"ModelChoiceField",
+			"self.subwidget_choices",
+			"choices",
+			"ChoiceField",
+			"GenericRelationSelect",
 			"objectives",
 			"--borderless",
 			"filtertemplates",
@@ -961,15 +1042,7 @@
 			"get_nav_title",
 			"()\n",
 			"dotBefore",
-			"dotAfter",
-			"dotBefore",
-			"dot--",
-			"list__",
-			"escape",
-			"inlinebox",
-			"--active",
-			"__active",
-			"model__buttons"
+			"dotAfter"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -977,6 +1050,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"GenericRelationMultiSelect",
+			"BaseMultiSelect",
+			"self.choices",
+			"OptGroupSelect",
 			"",
 			"TinyMCEFixinMixin",
 			"_by",
@@ -1100,11 +1177,7 @@
 			"Holiday",
 			"objects",
 			"send_newsletter",
-			"nl",
-			"newsletters",
-			"objects",
-			"coverage",
-			""
+			"nl"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1115,8 +1188,257 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "multiselect/fields.py",
+					"settings":
+					{
+						"buffer_size": 1474,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								496,
+								496
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 182.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "multiselect/widgets.py",
+					"settings":
+					{
+						"buffer_size": 9632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9594,
+								9594
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2889.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/adam/Python27/Lib/site-packages/django/forms/widgets.py",
+					"settings":
+					{
+						"buffer_size": 35142,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22029,
+								22029
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7681.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "multiselect/__init__.py",
+					"settings":
+					{
+						"buffer_size": 202,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/D/adam/Maredudd/Rhegiadur/Env/Lib/site-packages/django/forms/fields.py",
+					"settings":
+					{
+						"buffer_size": 40622,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								29510,
+								29521
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 10075.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "multiselect/forms.py",
+					"settings":
+					{
+						"buffer_size": 1666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1536,
+								1536
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/D/adam/Python27/Lib/site-packages/django/forms/fields.py",
+					"settings":
+					{
+						"buffer_size": 40622,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26709,
+								26716
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9095.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "multiselect/views.py",
+					"settings":
+					{
+						"buffer_size": 470,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "tests/test_app/forms.py",
+					"settings":
+					{
+						"buffer_size": 1196,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1008,
+								1008
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

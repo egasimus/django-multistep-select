@@ -31,7 +31,6 @@ class BaseMultiSelect(MultiWidget):
         return widgets
 
     def _set_choices(self, value):
-        print "SET"
         try:
             new_widgets = [isinstance(w, type) and w() or w
                            for w in self.get_subwidgets(self.attrs, value)]
@@ -46,7 +45,6 @@ class BaseMultiSelect(MultiWidget):
             self.widgets = new_widgets
 
     def _get_choices(self):
-        print "GET"
         return self.subwidget_choices
 
     choices = property(_get_choices, _set_choices)
@@ -220,9 +218,40 @@ class GenericRelationMultiSelect(BaseMultiSelect):
 
 
 class GenericRelationSelect(Select):
-    """ Represents multiple sets of choices as <optgroup> elements. """
+    """ Represents multiple sets of choices as <optgroup> elements
+        within a single <select>. """
 
     def __init__(self, attrs=None, choices=(), separator=','):
         super(Select, self).__init__(attrs)
         self.separator = separator
+
+        # TODO: choices are received as 2 consequent lists. group them!
         self.choices = list(choices)
+
+    def _get_choices(self):
+        return self._choices
+
+    def _set_choices(self, value):
+        if len(value) != 0:
+            # Group values by content type
+            ctype_choices = value[0]
+            obj_choices = value[1]
+
+            value = ()
+            for pk, ct in dict(ctype_choices).items():
+                subchoices = ()
+                for obj in [x for x in obj_choices
+                            if isinstance(x[1], ct.model_class())]:
+                    format = '%s' + self.separator + '%s'
+                    subchoice = (format % (pk, obj[0]),
+                                 obj[1])
+                    subchoices = subchoices + (subchoice, )
+                value = value + ((ct, subchoices),)
+
+
+        self._choices = value
+        from pprint import pprint
+        pprint(value)
+        print self.render('', '')
+
+    choices = property(_get_choices, _set_choices)

@@ -30,6 +30,7 @@ class GenericBazForm(GenericRelationModelFormMixin, forms.ModelForm):
         model = GenericBaz
         fields = ('name', 'content_object')
 
-    content_object = GenericRelationField(choices=[FilterBar.objects.all(),
+    content_object = GenericRelationField(widget=GenericRelationSelect,
+                                          choices=[FilterBar.objects.all(),
                                                    SimpleFoo.objects.all(),
                                                    GenericBaz.objects.all()])

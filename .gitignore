@@ -1,4 +1,5 @@
 *.pyc
 *.pyo
 db.sqlite
-*.sublime-*
+*.sublime-project
+*.sublime-workspace
