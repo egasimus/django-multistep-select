@@ -8,12 +8,12 @@ from .widgets import GenericRelationMultiSelect
 
 class GenericRelationField(ChoiceField):
     ct_field = 'content_type'
-    id_field = 'object_id'
+    fk_field = 'object_id'
     widget = GenericRelationMultiSelect
 
     def __init__(self, choices, *args, **kwargs):
         self.ct_field = kwargs.pop('ct_field', self.ct_field)
-        self.id_field = kwargs.pop('id_field', self.id_field)
+        self.fk_field = kwargs.pop('fk_field', self.fk_field)
 
         super(GenericRelationField, self).__init__(*args, **kwargs)
 

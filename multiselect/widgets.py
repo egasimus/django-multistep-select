@@ -1,6 +1,7 @@
 import warnings
 
 from django.core.exceptions import ImproperlyConfigured
+from django.contrib.contenttypes.models import ContentType
 from django.db.models.query import QuerySet
 # from django.core.urlresolvers import reverse
 from django.forms.widgets import Select, MultiWidget
@@ -227,6 +228,9 @@ class GenericRelationSelect(Select):
 
         self.choices = list(choices)
 
+    def get_format_string(self):
+        return '%s' + self.separator + '%s'
+
     def _get_choices(self):
         return self._choices
 
@@ -241,8 +245,7 @@ class GenericRelationSelect(Select):
                 subchoices = ()
                 for obj in [x for x in obj_choices
                             if isinstance(x[1], ct.model_class())]:
-                    format = '%s' + self.separator + '%s'
-                    subchoice = (format % (pk, obj[0]),
+                    subchoice = (self.get_format_string() % (pk, obj[0]),
                                  obj[1])
                     subchoices = subchoices + (subchoice, )
                 value = value + ((ct, subchoices),)
@@ -255,3 +258,14 @@ class GenericRelationSelect(Select):
         return super(GenericRelationSelect, self) \
             .value_from_datadict(data, files, name) \
             .split(self.separator)
+
+    def render(self, name, value, attrs=None, choices=()):
+        if isinstance(value, object):
+            value = self.get_format_string() % (
+                ContentType.objects.get_for_model(value).pk,
+                value.pk
+            )
+        else:
+            value = ''
+        return super(GenericRelationSelect, self).render(name, value,
+                                                         attrs, choices)

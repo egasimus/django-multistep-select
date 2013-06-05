@@ -4,6 +4,8 @@
 
 <a href="{% url 'home' %}" class="goBack">&laquo; Back to homepage</a>
 
+{% if show_object_list %}
+
 <section>
 
     <h1><strong>{{ object_name }}</strong> objects</h1>
@@ -20,7 +22,8 @@
         {% for obj in object_list %}
 
             <tr>
-                <td>{{ obj.name }}</td>
+                <td><a href="{{ obj.get_absolute_url }}">
+                    {{ obj.name }}</a></td>
                 <td>{{ obj.get_second_field_display }}</td>
             </tr>
 
@@ -31,6 +34,8 @@
     </table>
 
 </section>
+
+{% endif %}
 
 <section>
 

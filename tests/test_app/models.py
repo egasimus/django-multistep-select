@@ -1,6 +1,7 @@
-from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
+from django.core.urlresolvers import reverse
+from django.db import models
 
 
 class SimpleFoo(models.Model):
@@ -25,6 +26,9 @@ class SimpleFoo(models.Model):
     def get_second_field_display(self):
         return self.get_color_display()
 
+    def get_absolute_url(self):
+        return reverse('simple_edit', kwargs={'pk': self.pk})
+
 
 class FilterBar(models.Model):
     name = models.CharField(max_length=50)
@@ -39,6 +43,9 @@ class FilterBar(models.Model):
 
     def get_second_field_display(self):
         return unicode(self.foo)
+
+    def get_absolute_url(self):
+        return reverse('filter_edit', kwargs={'pk': self.pk})
 
 
 class GenericBaz(models.Model):
@@ -57,3 +64,6 @@ class GenericBaz(models.Model):
 
     def get_second_field_display(self):
         return unicode(self.content_object)
+
+    def get_absolute_url(self):
+        return reverse('generic_edit', kwargs={'pk': self.pk})
