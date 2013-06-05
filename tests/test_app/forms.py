@@ -3,7 +3,7 @@ from django import forms
 from .models import *
 from multiselect.fields import GenericRelationField
 from multiselect.forms import GenericRelationModelFormMixin
-from multiselect.widgets import SimpleFilterSelect, OptGroupSelect
+from multiselect.widgets import SimpleFilterSelect, GenericRelationSelect
 
 
 class SimpleFooForm(forms.ModelForm):

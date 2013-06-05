@@ -1,3 +1,5 @@
+import warnings
+
 from django.core.exceptions import ImproperlyConfigured
 from django.db.models.query import QuerySet
 # from django.core.urlresolvers import reverse
@@ -5,7 +7,7 @@ from django.forms.widgets import Select, MultiWidget
 # from django.utils.safestring import mark_safe
 
 
-class BaseMultiStepSelect(MultiWidget):
+class BaseMultiSelect(MultiWidget):
     subwidget_choices = []
 
     class Media:
@@ -14,15 +16,40 @@ class BaseMultiStepSelect(MultiWidget):
     def __init__(self, attrs=None, **kwargs):
         self.subwidget_choices = kwargs.pop('choices', self.subwidget_choices)
 
+        subwidgets = tuple(self.get_subwidgets(attrs,
+                                               self.get_subwidget_choices()))
+        super(BaseMultiSelect, self).__init__(subwidgets, attrs)
+
+    def get_subwidgets(self, attrs, choices):
         widgets = []
-        for c in self.get_subwidget_choices():
+        for c in choices:
             if isinstance(c, QuerySet):
                 """ Handle QuerySets passed as choice lists.
                     TODO: More robust handling of various iterables. """
                 c = zip(c.values_list('pk', flat=True), c)
             widgets.append(Select(attrs=attrs, choices=c))
+        return widgets
 
-        super(BaseMultiStepSelect, self).__init__(tuple(widgets), attrs)
+    def _set_choices(self, value):
+        print "SET"
+        try:
+            new_widgets = [isinstance(w, type) and w() or w
+                           for w in self.get_subwidgets(self.attrs, value)]
+        except:
+            warnings.warn("You are trying to set a BaseMultiSelect's"
+                          " choices attribute to something other than a list"
+                          " of choice lists. This action is ambiguous and is"
+                          " only ignored because some of Django's built-in"
+                          " form fields try to do the same.")
+        else:
+            self.subwidget_choices = value
+            self.widgets = new_widgets
+
+    def _get_choices(self):
+        print "GET"
+        return self.subwidget_choices
+
+    choices = property(_get_choices, _set_choices)
 
     def get_subwidget_choices(self):
         """ Returns a list of lists of possible choices for each
@@ -39,7 +66,7 @@ class BaseMultiStepSelect(MultiWidget):
             that match the names of subwidgets. """
 
         raise NotImplemented("You need to implement the value_from_datadict"
-                             " method in your subclass of BaseMultiStepSelect")
+                             " method in your subclass of BaseMultiSelect")
 
     def decompress(self, value):
         """ The opposite of value_from_datadict. Given the final value
@@ -47,11 +74,11 @@ class BaseMultiStepSelect(MultiWidget):
             subwidgets have. """
 
         raise NotImplemented("You need to implement the decompress method in"
-                             " your subclass of BaseMultiStepSelect")
+                             " your subclass of BaseMultiSelect")
 
 
 
-class SimpleFilterSelect(BaseMultiStepSelect):
+class SimpleFilterSelect(BaseMultiSelect):
     """ TODO: Abstract away from handling querysets, and use 3-tuples
               (value, text, relation_value) instead. This will also
               allow for code reuse between this and
@@ -157,7 +184,7 @@ class SimpleFilterSelect(BaseMultiStepSelect):
         return values
 
 
-class GenericRelationWidget(BaseMultiStepSelect):
+class GenericRelationWidget(BaseMultiSelect):
     """ A two-element select widget to choose a ContentType and an ID.
         Works in conjunction with GenericRelationWidget and
         GenericRelationFormMixin to provide better handling of
@@ -192,6 +219,10 @@ class GenericRelationWidget(BaseMultiStepSelect):
             return values
 
 
-class OptGroupSelect(Select):
+class GenericRelationSelect(Select):
     """ Represents multiple sets of choices as <optgroup> elements. """
-    pass
+
+    def __init__(self, attrs=None, choices=(), separator=','):
+        super(Select, self).__init__(attrs)
+        self.separator = separator
+        self.choices = list(choices)

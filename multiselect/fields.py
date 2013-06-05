@@ -19,7 +19,6 @@ class GenericRelationField(ChoiceField):
         super(GenericRelationField, self).__init__(*args, **kwargs)
 
         self.choices = choices
-        self.widget = GenericRelationWidget(choices=self.choices)
 
     def _get_choices(self):
         return self._choices
