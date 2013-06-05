@@ -197,7 +197,7 @@ class GenericRelationMultiSelect(BaseMultiSelect):
         return self.subwidget_choices
 
     def value_from_datadict(self, data, files, name):
-        """ When queried about its value, return a (ctype, id) tuple. """
+        """ When queried, return a (ctype, id) tuple. """
         value = [widget.value_from_datadict(data, files, name + '_%s' % i)
                  for i, widget in enumerate(self.widgets)]
         return(value[-2], value[-1])
@@ -225,7 +225,6 @@ class GenericRelationSelect(Select):
         super(Select, self).__init__(attrs)
         self.separator = separator
 
-        # TODO: choices are received as 2 consequent lists. group them!
         self.choices = list(choices)
 
     def _get_choices(self):
@@ -251,3 +250,8 @@ class GenericRelationSelect(Select):
         self._choices = value
 
     choices = property(_get_choices, _set_choices)
+
+    def value_from_datadict(self, data, files, name):
+        return super(GenericRelationSelect, self) \
+            .value_from_datadict(data, files, name) \
+            .split(self.separator)
