@@ -1,16 +1,15 @@
 from itertools import chain
 
 from django.contrib.contenttypes.models import ContentType
-from django.forms.fields import Field, ChoiceField
-from django.utils.encoding import smart_text
+from django.forms.fields import ChoiceField
 
-from .widgets import GenericRelationWidget
+from .widgets import GenericRelationMultiSelect
 
 
 class GenericRelationField(ChoiceField):
     ct_field = 'content_type'
     id_field = 'object_id'
-    widget = GenericRelationWidget
+    widget = GenericRelationMultiSelect
 
     def __init__(self, choices, *args, **kwargs):
         self.ct_field = kwargs.pop('ct_field', self.ct_field)

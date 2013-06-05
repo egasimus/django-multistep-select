@@ -82,7 +82,7 @@ class SimpleFilterSelect(BaseMultiSelect):
     """ TODO: Abstract away from handling querysets, and use 3-tuples
               (value, text, relation_value) instead. This will also
               allow for code reuse between this and
-              GenericRelationWidget.
+              GenericRelationMultiSelect.
 
         Implements one common use case for a multi-step select widget,
         allowing the user to filter through a multitude of choices by
@@ -184,14 +184,14 @@ class SimpleFilterSelect(BaseMultiSelect):
         return values
 
 
-class GenericRelationWidget(BaseMultiSelect):
+class GenericRelationMultiSelect(BaseMultiSelect):
     """ A two-element select widget to choose a ContentType and an ID.
-        Works in conjunction with GenericRelationWidget and
+        Works in conjunction with GenericRelationMultiSelect and
         GenericRelationFormMixin to provide better handling of
         GenericRelations in models. """
 
     def __init__(self, attrs=None, **kwargs):
-        super(GenericRelationWidget, self).__init__(attrs, **kwargs)
+        super(GenericRelationMultiSelect, self).__init__(attrs, **kwargs)
 
     def get_subwidget_choices(self):
         """ TODO: Return the list of models in one subwidget, and a
