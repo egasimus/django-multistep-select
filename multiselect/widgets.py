@@ -223,9 +223,11 @@ class GenericRelationSelect(Select):
     """ Represents multiple sets of choices as <optgroup> elements
         within a single <select>. """
 
-    def __init__(self, attrs=None, choices=(), separator=','):
+    def __init__(self, attrs=None, choices=(), placeholder='---------',
+                 separator=','):
         super(Select, self).__init__(attrs)
         self.separator = separator
+        self.placeholder = placeholder
 
         self.choices = list(choices)
 
@@ -248,8 +250,8 @@ class GenericRelationSelect(Select):
                             if isinstance(x[1], ct.model_class())]:
                     subchoice = (self.get_format_string() % (pk, obj[0]),
                                  obj[1])
-                    subchoices = subchoices + (subchoice, )
-                value = value + ((ct, subchoices),)
+                    subchoices += (subchoice, )
+                value += ((ct, subchoices),)
 
         self._choices = value
 
@@ -274,3 +276,12 @@ class GenericRelationSelect(Select):
             value = []
         return super(GenericRelationSelect, self).render(name, value,
                                                          attrs, choices)
+
+    def render_options(self, choices, selected_choices):
+        """ Add placeholder for blank or optional fields. """
+
+        c = super(GenericRelationSelect, self).render_options(choices,
+                                                              selected_choices)
+        if not self.is_required or selected_choices == [[]]:
+            c = self.render_option(selected_choices, '', self.placeholder) + c
+        return c
