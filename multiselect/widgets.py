@@ -282,6 +282,6 @@ class GenericRelationSelect(Select):
 
         c = super(GenericRelationSelect, self).render_options(choices,
                                                               selected_choices)
-        if not self.is_required or selected_choices == [[]]:
+        if (not self.is_required) or selected_choices == [[]]:
             c = self.render_option(selected_choices, '', self.placeholder) + c
         return c
