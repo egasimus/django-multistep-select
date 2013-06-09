@@ -292,6 +292,7 @@ class GenericRelationSelect(Select):
 
     def render_options(self, choices, selected_choices):
         """ Add placeholder for blank or optional fields. """
+        selected_choices[0] = self.separator.join(selected_choices[0])
 
         c = super(GenericRelationSelect, self).render_options(choices,
                                                               selected_choices)
