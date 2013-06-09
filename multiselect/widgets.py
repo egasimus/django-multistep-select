@@ -258,9 +258,22 @@ class GenericRelationSelect(Select):
     choices = property(_get_choices, _set_choices)
 
     def value_from_datadict(self, data, files, name):
-        return super(GenericRelationSelect, self) \
-            .value_from_datadict(data, files, name) \
-            .split(self.separator)
+        """ Takes a string (the value of the selected <option>, as
+            taken from request variables) and returns a tuple of strings
+            representing the ContentType and Model PKs. """
+
+        value = super(GenericRelationSelect, self).value_from_datadict(data,
+                                                                       files,
+                                                                       name)
+        try:
+            v = value.split(self.separator, 1)
+        except AttributeError:
+            return [None, None]
+
+        if len(v) < 2:
+            return [None, None]
+
+        return v
 
     def render(self, name, value, attrs=None, choices=()):
         """ TODO: Make sure that this method consistently receives the
@@ -282,6 +295,9 @@ class GenericRelationSelect(Select):
 
         c = super(GenericRelationSelect, self).render_options(choices,
                                                               selected_choices)
-        if (not self.is_required) or selected_choices == [[]]:
+
+        """ If we haven't selected anything yet, OR, if the field allows
+            for selecting a null value, add a placeholder up front. """
+        if selected_choices == [[None, None]] or not self.is_required:
             c = self.render_option(selected_choices, '', self.placeholder) + c
         return c

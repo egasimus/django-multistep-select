@@ -39,9 +39,8 @@ class GenericRelationField(ChoiceField):
     choices = property(_get_choices, _set_choices)
 
     def to_python(self, value):
-        if value == ['']:
-            return [None, None]
-
+        if None in value:
+            return None
         ct = ContentType.objects.get_for_id(value[-2])
         return [ct, ct.model_class().objects.get(pk=value[-1])]
 

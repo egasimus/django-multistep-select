@@ -21,12 +21,16 @@ class GenericRelationModelFormMixin(object):
         the model as usual. """
 
     def _initialize(self):
-        if self.instance:
+        try:
             for field in self.instance._meta.virtual_fields:
                 if isinstance(field, GenericForeignKey):
                     self.initial.update({
                         field.name: getattr(self.instance, field.name),
                     })
+        except AttributeError:
+            """ Ignore instance initialization if the mixin is used with
+                a non-model Form."""
+            pass
 
     def __init__(self, *args, **kwargs):
         super(GenericRelationModelFormMixin, self).__init__(*args, **kwargs)
