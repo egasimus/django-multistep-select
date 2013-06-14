@@ -42,10 +42,18 @@ class GenericRelationModelFormMixin(object):
                 isinstance(field, GenericRelationField)
                 and name in cleaned_data
             ):
-                cleaned_data.update({
-                    field.ct_field: cleaned_data[name][0],
-                    field.fk_field: cleaned_data[name][1].pk
-                })
+                # TODO hack failsafe - redo hierarchy of classes
+                if cleaned_data[name] is None:
+                    cleaned_data.update({
+                        field.ct_field: None,
+                        field.fk_field: None
+                    })
+                else:
+                    cleaned_data.update({
+                        field.ct_field: cleaned_data[name][0],
+                        field.fk_field: cleaned_data[name][1].pk
+                    })
+
                 self._meta.fields += (field.ct_field, field.fk_field)
                 del cleaned_data[name]
         return cleaned_data
