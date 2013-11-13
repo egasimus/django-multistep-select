@@ -28,13 +28,9 @@ class GenericRelationField(ChoiceField):
             ContentType.objects.get_for_model(x.model)
         ) for x in value]
         object_choices = list(
-            chain(*[zip(x.values_list('pk', flat=True), x) for x in value])
-        )
+            chain(*[zip(x.values_list('pk', flat=True), x) for x in value]) )
 
-        self._choices = self.widget.choices = (
-            ctype_choices,
-            object_choices
-        )
+        self._choices = self.widget.choices = (ctype_choices, object_choices)
 
     choices = property(_get_choices, _set_choices)
 

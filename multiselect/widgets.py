@@ -16,14 +16,35 @@ class BaseMultiSelect(MultiWidget):
         js = ('multistep_select/multistep_select.js', )
 
     def __init__(self, attrs=None, **kwargs):
-        self.subwidget_choices = kwargs.pop('choices', self.subwidget_choices)
+        """ The parameter `choices` is used here to set the instance attribute
+            `subwidget_choices`, which is handled by the `choices` property
+            and the `_get_choices` and `_set_choices` methods. """
 
-        subwidgets = tuple(self.get_subwidgets(attrs,
-                                               self.get_subwidget_choices()))
+        self.subwidget_choices = kwargs.get('choices')
+
+        # Generate list of subwidgets.
+        # `attrs` are passed down to individual subwidgets.
+        subwidgets = tuple(
+            self.get_subwidgets(attrs, self.get_subwidget_choices()))
+
+        # Runs the base class constructor chain, passing the list of
+        # subwidgets into MultiWidget.__init__, which makes sure any classes
+        # in there are instantiated before calling Widget.__init__ - which
+        # just initializes self.attrs = attrs.copy() or self.attrs = {}.
         super(BaseMultiSelect, self).__init__(subwidgets, attrs)
 
     def get_subwidgets(self, attrs, choices):
+        """ Generate a list of subwidgets by appending a new Select to
+            `widgets` # for each of the dataset provided in `choices`.
+            QuerySets pass some special processing: their contents are zipped
+            into lists of tuples ((pk1, object1), (pk2, object2)... (pkN,
+                objectN)).
+
+
+            Other dataset types are expected to conform to this format. """
+
         widgets = []
+
         for c in choices:
             if isinstance(c, QuerySet):
                 """ Handle QuerySets passed as choice lists.
@@ -33,18 +54,24 @@ class BaseMultiSelect(MultiWidget):
         return widgets
 
     def _set_choices(self, value):
+        """ Perform the same list comprehension as in `MultiWidget.__init__`.
+            We can't run the constructor itself here, though, since
+            `Widget.__init__` nukes self.attrs. """
+
         try:
             new_widgets = [isinstance(w, type) and w() or w
                            for w in self.get_subwidgets(self.attrs, value)]
         except:
+            # I have no idea what's going on here.
             warnings.warn("You are trying to set a BaseMultiSelect's"
                           " choices attribute to something other than a list"
                           " of choice lists. This action is ambiguous and is"
                           " only ignored because some of Django's built-in"
-                          " form fields try to do the same.")
-        else:
-            self.subwidget_choices = value
-            self.widgets = new_widgets
+                          " form fields attempt to do the same.")
+
+        # Update self.subwidget_choices and self.widgets
+        self.subwidget_choices = value
+        self.widgets = new_widgets
 
     def _get_choices(self):
         return self.subwidget_choices
@@ -53,7 +80,7 @@ class BaseMultiSelect(MultiWidget):
 
     def get_subwidget_choices(self):
         """ Returns a list of lists of possible choices for each
-            subwidget. You'll most likely want to implement custom logic
+            subwidget. A likely most likely want to implement custom logic
             in this method to make widgets depend on each other by
             providing different available choices based on current
             values (see below for an example in SimpleFilterSelect). """
@@ -77,12 +104,12 @@ class BaseMultiSelect(MultiWidget):
                              " your subclass of BaseMultiSelect")
 
 
-
 class SimpleFilterSelect(BaseMultiSelect):
     """ TODO: Abstract away from handling querysets, and use 3-tuples
               (value, text, relation_value) instead. This will also
               allow for code reuse between this and
-              GenericRelationMultiSelect.
+              GenericRelationMultiSelect. QuerySets aren't the widget's job
+              anyway.
 
         Implements one common use case for a multi-step select widget,
         allowing the user to filter through a multitude of choices by
@@ -122,11 +149,15 @@ class SimpleFilterSelect(BaseMultiSelect):
     subwidget_relations = []
 
     def __init__(self, attrs=None, **kwargs):
+        """ In the context of this widget, the name and identifier `relation`
+            is used for a string containing a related_name that returns
+            a single Model instance; i.e. a OneToOne relation or a
+            ForeignKey. """
         super(SimpleFilterSelect, self).__init__(attrs, **kwargs)
 
-        self.subwidget_relations = \
-            kwargs.pop('relations', self.subwidget_relations)
-
+        # Get value for subwidget_relations and ensure there's the correct
+        # count of relations defined.
+        self.subwidget_relations = kwargs.pop('relations')
         if len(self.subwidget_relations) != len(self.subwidget_choices) - 1:
             error_text = "There must be %s relation(s) between %s subwidgets" \
                          " (%s given)" % (len(self.subwidget_choices) - 1,
@@ -141,13 +172,11 @@ class SimpleFilterSelect(BaseMultiSelect):
                 for i, widget in enumerate(self.widgets)][-1]
 
     def decompress(self, value):
-        """ The opposite of value_from_datadict. Given the final value
-            of the widget, determines what values should be displayed by
-            the individual subwidgets. """
+        """ The opposite of value_from_datadict. Determines what values
+            should be displayed by the individual subwidgets, based on
+            the final value alone.
 
-        values = []
-
-        """ If the value is None, fill the values list with as many
+            If the value is None, fill the values list with as many
             None's as there are fields. """
         if value is None:
             for _ in range(0, len(self.get_subwidget_choices())):
@@ -155,24 +184,24 @@ class SimpleFilterSelect(BaseMultiSelect):
             return values
 
         """ We'll be iterating over relations in reverse order by
-            popping the last elements of those lists. """
+            popping the last elements off copies of the two lists. """
         relations = self.subwidget_relations[:]
         choice_lists = self.get_subwidget_choices()[:]
 
-        """ On the first iteration, we get the last value and add it to
-            the list. """
-        val = value
-        values.insert(0, val)
-
+        """ First of all, we get the last value and add it to the list. """
+        values = [value]
         choices = choice_lists.pop()
 
+        """ To determine the value for every next subwidget, we need
+            to get the current object, and 'apply' the corresponding relation,
+            i.e. retrieve the corresponding attribute. """
         while len(relations) > 0:
-            """ To determine the value for the next subwidget, we need
-                to get the current object, and look at the value of its
-                relation field. """
             relation = relations.pop()
+
+            """ I'm not really sure how the following bit came to be.
+                Lemme see if it works at all. """
             try:
-                """ If choices is a queryset """
+                """ If choices is a QuerySet """
                 obj = choices.get(pk=val)
                 val = getattr(obj, relation)
             except AttributeError:
@@ -182,41 +211,6 @@ class SimpleFilterSelect(BaseMultiSelect):
             choices = choice_lists.pop()
 
         return values
-
-
-class GenericRelationMultiSelect(BaseMultiSelect):
-    """ A two-element select widget to choose a ContentType and an ID.
-        Works in conjunction with GenericRelationMultiSelect and
-        GenericRelationFormMixin to provide better handling of
-        GenericRelations in models. """
-
-    def __init__(self, attrs=None, **kwargs):
-        super(GenericRelationMultiSelect, self).__init__(attrs, **kwargs)
-
-    def get_subwidget_choices(self):
-        """ TODO: Return the list of models in one subwidget, and a
-            corresponding queryset in the other. """
-        return self.subwidget_choices
-
-    def value_from_datadict(self, data, files, name):
-        """ When queried, return a (ctype, id) tuple. """
-        value = [widget.value_from_datadict(data, files, name + '_%s' % i)
-                 for i, widget in enumerate(self.widgets)]
-        return(value[-2], value[-1])
-
-    def decompress(self, value):
-        """ The opposite of value_from_datadict. Given the final value
-            of the widget, determines what values should be displayed by
-            the individual subwidgets. """
-
-        values = []
-
-        """ If the value is None, fill the values list with as many
-            None's as there are fields. """
-        if value is None:
-            for _ in range(0, len(self.get_subwidget_choices())):
-                values.append(None)
-            return values
 
 
 class GenericRelationSelect(Select):
@@ -306,3 +300,38 @@ class GenericRelationSelect(Select):
         if selected_choices == [[None, None]] or not self.is_required:
             c = self.render_option(selected_choices, '', self.placeholder) + c
         return c
+
+
+class GenericRelationMultiSelect(BaseMultiSelect):
+    """ WIP: A two-element select widget to choose a ContentType and an ID.
+        Works in conjunction with GenericRelationMultiSelect and
+        GenericRelationFormMixin to provide better handling of
+        GenericRelations in models. """
+
+    def __init__(self, attrs=None, **kwargs):
+        super(GenericRelationMultiSelect, self).__init__(attrs, **kwargs)
+
+    def get_subwidget_choices(self):
+        """ TODO: Return the list of models in one subwidget, and a
+            corresponding queryset in the other. """
+        return self.subwidget_choices
+
+    def value_from_datadict(self, data, files, name):
+        """ When queried, return a (ctype, id) tuple. """
+        value = [widget.value_from_datadict(data, files, name + '_%s' % i)
+                 for i, widget in enumerate(self.widgets)]
+        return(value[-2], value[-1])
+
+    def decompress(self, value):
+        """ The opposite of value_from_datadict. Given the final value
+            of the widget, determines what values should be displayed by
+            the individual subwidgets. """
+
+        values = []
+
+        """ If the value is None, fill the values list with as many
+            None's as there are fields. """
+        if value is None:
+            for _ in range(0, len(self.get_subwidget_choices())):
+                values.append(None)
+            return values
