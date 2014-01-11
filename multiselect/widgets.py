@@ -174,19 +174,17 @@ class SimpleFilterSelect(BaseMultiSelect):
     def decompress(self, value):
         """ The opposite of value_from_datadict. Determines what values
             should be displayed by the individual subwidgets, based on
-            the final value alone.
+            the final value alone. """
 
-            If the value is None, fill the values list with as many
-            None's as there are fields. """
-        if value is None:
-            for _ in range(0, len(self.get_subwidget_choices())):
-                values.append(None)
-            return values
-
-        """ We'll be iterating over relations in reverse order by
+        """ So, we'll be iterating over relations in reverse order by
             popping the last elements off copies of the two lists. """
         relations = self.subwidget_relations[:]
         choice_lists = self.get_subwidget_choices()[:]
+        
+        """ If the value is None, return a list with as many `None`s
+            as there are fields. """
+        if value is None:
+            return [None for _ in choice_lists]
 
         """ First of all, we get the last value and add it to the list. """
         values = [value]
