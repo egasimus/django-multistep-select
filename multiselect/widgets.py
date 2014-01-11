@@ -61,6 +61,8 @@ class BaseMultiSelect(MultiWidget):
         try:
             new_widgets = [isinstance(w, type) and w() or w
                            for w in self.get_subwidgets(self.attrs, value)]
+            self.subwidget_choices = value
+            self.widgets = new_widgets
         except:
             # I have no idea what's going on here.
             warnings.warn("You are trying to set a BaseMultiSelect's"
@@ -68,10 +70,6 @@ class BaseMultiSelect(MultiWidget):
                           " of choice lists. This action is ambiguous and is"
                           " only ignored because some of Django's built-in"
                           " form fields attempt to do the same.")
-
-        # Update self.subwidget_choices and self.widgets
-        self.subwidget_choices = value
-        self.widgets = new_widgets
 
     def _get_choices(self):
         return self.subwidget_choices
